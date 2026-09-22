@@ -5,6 +5,8 @@
  */
 package br.com.sistema.main;
 
+import br.com.sistema.view.FrmTelaLogin;
+
 /**
  *
  * @author guiho
@@ -12,5 +14,7 @@ package br.com.sistema.main;
 public class Main {
     public static void main(String[] args) {
         System.out.println("Olá, mundo!");
+          FrmTelaLogin login = new FrmTelaLogin();
+          login.setVisible(true);
     }
 }

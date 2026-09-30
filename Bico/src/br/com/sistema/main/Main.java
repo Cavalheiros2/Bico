@@ -5,7 +5,9 @@
  */
 package br.com.sistema.main;
 
+import br.com.sistema.jdbc.ConnectionFactory;
 import br.com.sistema.view.FrmTelaLogin;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +15,15 @@ import br.com.sistema.view.FrmTelaLogin;
  */
 public class Main {
     public static void main(String[] args) {
+        
+        try{
+            new ConnectionFactory().getConnection();
+            JOptionPane.showMessageDialog(null, "Conectado com Sucesso!");
+        }
+       catch(Exception e){
+            JOptionPane.showMessageDialog(null, "nao conectado!");
+       }
+        
         System.out.println("Olá, mundo!");
           FrmTelaLogin login = new FrmTelaLogin();
           login.setVisible(true);

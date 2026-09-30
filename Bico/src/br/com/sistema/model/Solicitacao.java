@@ -19,6 +19,23 @@ public class Solicitacao {
     String regiao;
     float proposta_valor;
 
+<<<<<<< HEAD
+=======
+    public Solicitacao() {
+    }
+
+    public Solicitacao(int id_solicitacao, String categoria, String descricao, String data_solicitacao, String hora_solicitacao, String local_solicitacao, String regiao, float proposta_valor) {
+        this.id_solicitacao = id_solicitacao;
+        this.categoria = categoria;
+        this.descricao = descricao;
+        this.data_solicitacao = data_solicitacao;
+        this.hora_solicitacao = hora_solicitacao;
+        this.local_solicitacao = local_solicitacao;
+        this.regiao = regiao;
+        this.proposta_valor = proposta_valor;
+    }
+
+>>>>>>> b260bff887f5b35f107801e9632efb1d70234983
     public int getId_solicitacao() {
         return id_solicitacao;
     }

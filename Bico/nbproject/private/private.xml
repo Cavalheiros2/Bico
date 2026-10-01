@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/jgfca/OneDrive/Documentos/NetBeansProjects/Bico/Bico/src/br/com/sistema/view/FrmCadastro.java</file>
+            <file>file:/C:/Users/jgfca/OneDrive/Documentos/NetBeansProjects/Bico/Bico/src/br/com/sistema/view/FrmMenuSolicitacao.java</file>
+            <file>file:/C:/Users/jgfca/OneDrive/Documentos/NetBeansProjects/Bico/Bico/src/br/com/sistema/view/FrmSolicitacao.java</file>
+            <file>file:/C:/Users/jgfca/OneDrive/Documentos/NetBeansProjects/Bico/Bico/src/br/com/sistema/view/FrmTelaLogin.java</file>
+=======
+            <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/model/Solicitacao.java</file>
+>>>>>>> eefc3c112af37154b50a3667abde225dfa58b273
             <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/view/FrmContato.java</file>
             <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/view/FrmSolicitacao.java</file>
             <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/view/FrmMenuPrincipal.java</file>
             <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/view/FrmCadastro.java</file>
             <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/view/FrmMenuSolicitacao.java</file>
             <file>file:/C:/Users/guiho/Documents/NetBeansProjects/Bico/src/br/com/sistema/view/FrmTelaLogin.java</file>
+>>>>>>> b260bff887f5b35f107801e9632efb1d70234983
         </group>
     </open-files>
 </project-private>

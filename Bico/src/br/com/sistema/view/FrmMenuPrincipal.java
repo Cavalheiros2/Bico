@@ -27,22 +27,82 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        menuBarra = new javax.swing.JMenuBar();
+        menuCadastro = new javax.swing.JMenu();
+        munuItemCliente = new javax.swing.JMenuItem();
+        menuItemSolicitacao = new javax.swing.JMenuItem();
+        menuOpcao = new javax.swing.JMenu();
+        menuItemSair = new javax.swing.JMenuItem();
+        menuItemContatos = new javax.swing.JMenuItem();
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 51));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1050, 590));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 438, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 321, Short.MAX_VALUE)
+        );
+
+        menuCadastro.setText("Editar/Cadastrar");
+
+        munuItemCliente.setText("Cliente");
+        munuItemCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                munuItemClienteActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(munuItemCliente);
+
+        menuItemSolicitacao.setText("Solicitação");
+        menuCadastro.add(menuItemSolicitacao);
+
+        menuBarra.add(menuCadastro);
+
+        menuOpcao.setText("Opções");
+
+        menuItemSair.setText("Sair");
+        menuOpcao.add(menuItemSair);
+
+        menuItemContatos.setText("Contatos");
+        menuOpcao.add(menuItemContatos);
+
+        menuBarra.add(menuOpcao);
+
+        setJMenuBar(menuBarra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1050, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void munuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_munuItemClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_munuItemClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +140,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JMenuBar menuBarra;
+    private javax.swing.JMenu menuCadastro;
+    private javax.swing.JMenuItem menuItemContatos;
+    private javax.swing.JMenuItem menuItemSair;
+    private javax.swing.JMenuItem menuItemSolicitacao;
+    private javax.swing.JMenu menuOpcao;
+    private javax.swing.JMenuItem munuItemCliente;
     // End of variables declaration//GEN-END:variables
 }

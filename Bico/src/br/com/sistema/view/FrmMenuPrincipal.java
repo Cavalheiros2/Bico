@@ -41,7 +41,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 590));

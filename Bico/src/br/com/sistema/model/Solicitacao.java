@@ -19,8 +19,6 @@ public class Solicitacao {
     String regiao;
     float proposta_valor;
 
-<<<<<<< HEAD
-=======
     public Solicitacao() {
     }
 
@@ -35,7 +33,6 @@ public class Solicitacao {
         this.proposta_valor = proposta_valor;
     }
 
->>>>>>> b260bff887f5b35f107801e9632efb1d70234983
     public int getId_solicitacao() {
         return id_solicitacao;
     }

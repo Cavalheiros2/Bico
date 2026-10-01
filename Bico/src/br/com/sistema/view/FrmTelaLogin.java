@@ -100,15 +100,13 @@ public class FrmTelaLogin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-=======
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(btnEntrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addComponent(btnCadastro)
                 .addGap(24, 24, 24))
->>>>>>> eefc3c112af37154b50a3667abde225dfa58b273
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -118,15 +116,10 @@ public class FrmTelaLogin extends javax.swing.JFrame {
                         .addComponent(btnCadastro))
                     .addComponent(labSenha)
                     .addComponent(labNome)
-<<<<<<< HEAD
-                    .addComponent(txtNome)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
-=======
+
                     .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                     .addComponent(txtSenha))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
->>>>>>> eefc3c112af37154b50a3667abde225dfa58b273
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,19 +132,11 @@ public class FrmTelaLogin extends javax.swing.JFrame {
                 .addComponent(labSenha)
                 .addGap(18, 18, 18)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEntrar)
-                    .addComponent(btnCadastro))
-                .addContainerGap(197, Short.MAX_VALUE))
-=======
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEntrar)
                     .addComponent(btnCadastro))
                 .addGap(92, 92, 92))
->>>>>>> eefc3c112af37154b50a3667abde225dfa58b273
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

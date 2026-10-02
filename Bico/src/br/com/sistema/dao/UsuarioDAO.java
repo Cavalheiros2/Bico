@@ -31,7 +31,6 @@ public class UsuarioDAO {
 
             if (result.next()) {
                 Usuario usuario = new Usuario();
-                // Mapeamento corrigido conforme a imagem
                 usuario.setId_usuario(result.getInt("id_usuario"));
                 usuario.setNome(result.getString("nome"));
                 usuario.setSenha(result.getString("senha"));

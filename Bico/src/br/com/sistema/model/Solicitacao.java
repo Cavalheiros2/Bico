@@ -12,16 +12,17 @@ package br.com.sistema.model;
 public class Solicitacao {
     int id_solicitacao;
     String categoria;
-    String descricao; //colocar as datas no padrão DD/MM/AAAA
+    String descricao; 
     String data_solicitacao;
     String hora_solicitacao;
     String local_solicitacao;
     float proposta_valor;
+    int id_usuario;
 
     public Solicitacao() {
     }
 
-    public Solicitacao(int id_solicitacao, String categoria, String descricao, String data_solicitacao, String hora_solicitacao, String local_solicitacao, float proposta_valor) {
+    public Solicitacao(int id_solicitacao, String categoria, String descricao, String data_solicitacao, String hora_solicitacao, String local_solicitacao, float proposta_valor,int id_usuario) {
         this.id_solicitacao = id_solicitacao;
         this.categoria = categoria;
         this.descricao = descricao;
@@ -29,6 +30,15 @@ public class Solicitacao {
         this.hora_solicitacao = hora_solicitacao;
         this.local_solicitacao = local_solicitacao;
         this.proposta_valor = proposta_valor;
+        this.id_usuario = id_usuario;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public int getId_solicitacao() {

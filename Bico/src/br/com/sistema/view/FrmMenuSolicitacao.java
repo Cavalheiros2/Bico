@@ -30,7 +30,7 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tabelaSolicitacoes = new javax.swing.JTable();
         txtPesquisa = new javax.swing.JTextField();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -56,7 +56,7 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 590));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaSolicitacoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -67,7 +67,7 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
                 "categoria", "descriçao", "data", "hora", "local", "prop_valor"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tabelaSolicitacoes);
 
         txtPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,8 +288,8 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel labPesquisa;
+    private javax.swing.JTable tabelaSolicitacoes;
     private javax.swing.JTextField txtNovaData;
     private javax.swing.JTextField txtNovaHora;
     private javax.swing.JTextField txtNovoLocal;

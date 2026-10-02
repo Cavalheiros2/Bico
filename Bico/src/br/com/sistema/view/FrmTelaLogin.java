@@ -109,7 +109,7 @@ public class FrmTelaLogin extends javax.swing.JFrame {
         labSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labSenha.setText("SENHA:");
 
-        jLabel1.setFont(new java.awt.Font("Wide Latin", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Wide Latin", 1, 48)); // NOI18N
         jLabel1.setText("BICO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

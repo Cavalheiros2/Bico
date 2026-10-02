@@ -28,12 +28,33 @@ public class SolicitacaoDAO {
         }
     }
     
+    public void salvarSolicitacao(Solicitacao obj){
+        try {
+            String sql = "INSERT INTO solicitacoes (categoria,descricao,data_solicitacao,hora_solicitacao,local_solicitacao,proposta_valor,id_usuario) VALUES(?,?,?,?,?,?,?)";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, obj.getCategoria());
+            stmt.setString(2, obj.getDescricao());
+            stmt.setString(3, obj.getData_solicitacao());
+            stmt.setString(4, obj.getHora_solicitacao());
+            stmt.setString(5, obj.getLocal_solicitacao());
+            stmt.setFloat(6, obj.getProposta_valor());
+            stmt.setInt(7, obj.getId_usuario());
+            
+            stmt.execute();
+            stmt.close();
+            JOptionPane.showMessageDialog(null, "Solicitação salvo com sucesso!");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar solicitação: " + erro);
+        }
+    }
+    
     public List<Solicitacao> listarSolicitacoes(int idUsuarioLogado){
         try {
             List<Solicitacao> lista = new ArrayList<>();
             
-            String sql = "Select id_solicitacao, categoria, descricao, data_solicitacao, hora_solicitacao, local_solicitacao, regiao, proposta_valor" +
-                    "from solicitacoes where id_usuario = ?";
+            String sql = "SELECT id_solicitacao, categoria, descricao, data_solicitacao, hora_solicitacao, local_solicitacao, proposta_valor, id_usuario " +
+             "FROM solicitacoes WHERE id_usuario = ?";
+
             
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, idUsuarioLogado);

@@ -11,11 +11,22 @@ package br.com.sistema.view;
  */
 public class FrmMenuSolicitacao extends javax.swing.JFrame {
 
+    private int idUsuarioLogado;
+    private int idSolicitacaoSelecionada = -1;
+    private br.com.sistema.dao.SolicitacaoDAO solicitacaoDAO = new br.com.sistema.dao.SolicitacaoDAO();
+
     /**
      * Creates new form FrmSolicitacao
      */
-    public FrmMenuSolicitacao() {
+    public FrmMenuSolicitacao(int idUsuarioLogado) {
+        this.idUsuarioLogado = idUsuarioLogado;
         initComponents();
+
+        preencherTabela();
+    }
+
+    private FrmMenuSolicitacao() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -44,6 +55,7 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
         txtNovaHora = new javax.swing.JTextField();
         txtNovoLocal = new javax.swing.JTextField();
         txtNovaData = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
@@ -66,12 +78,30 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
             new String [] {
                 "categoria", "descriçao", "data", "hora", "local", "prop_valor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelaSolicitacoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaSolicitacoesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelaSolicitacoes);
 
         txtPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisaActionPerformed(evt);
+            }
+        });
+        txtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPesquisaKeyReleased(evt);
             }
         });
 
@@ -85,6 +115,11 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
 
         btnExcluir.setText("EXCLUIR");
         btnExcluir.setPreferredSize(new java.awt.Dimension(120, 80));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnLimparCampos.setText("LIMPAR CAMPOS");
         btnLimparCampos.setPreferredSize(new java.awt.Dimension(120, 80));
@@ -133,45 +168,54 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labPesquisa)
-                            .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNovaData, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel1)
-                                .addGap(91, 91, 91)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txtNovaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNovoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))))
-                        .addGap(31, 31, 31)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCadastrarSolicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(394, 394, 394)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnVoltar)
+                        .addGap(276, 276, 276)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labPesquisa)
+                                    .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNovaData, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jLabel1)
+                                        .addGap(91, 91, 91)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(txtNovaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(39, 39, 39)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtNovoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel2))))
+                                .addGap(31, 31, 31)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCadastrarSolicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -189,7 +233,11 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnLimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btnVoltar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labPesquisa)
@@ -222,11 +270,28 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        if (this.idSolicitacaoSelecionada == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecione uma solicitação na tabela primeiro!");
+            return;
+        }
+
+        String novaData = txtNovaData.getText().trim();
+        String novaHora = txtNovaHora.getText().trim();
+        String novoLocal = txtNovoLocal.getText().trim();
+
+        if (novaData.isEmpty() || novaHora.isEmpty() || novoLocal.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Preencha todos os campos (Data, Hora e Local) para alteração!");
+            return;
+        }
+
+        solicitacaoDAO.editarSolicitacao(this.idSolicitacaoSelecionada, novaData, novaHora, novoLocal);
+
+        preencherTabela();
+        btnLimparCamposActionPerformed(evt);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtPesquisaActionPerformed
 
     private void btnCadastrarSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarSolicitacaoActionPerformed
@@ -246,8 +311,100 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNovaDataActionPerformed
 
     private void btnLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposActionPerformed
-        // TODO add your handling code here:
+
+        txtPesquisa.setText("");
+        txtNovaData.setText("");
+        txtNovaHora.setText("");
+        txtNovoLocal.setText("");
+
+        this.idSolicitacaoSelecionada = -1;
+
+        tabelaSolicitacoes.clearSelection();
+
     }//GEN-LAST:event_btnLimparCamposActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        FrmMenuPrincipal menu = new FrmMenuPrincipal(this.idUsuarioLogado);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void tabelaSolicitacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaSolicitacoesMouseClicked
+        int linhaSelecionada = tabelaSolicitacoes.getSelectedRow();
+
+        java.util.List<br.com.sistema.model.Solicitacao> lista = solicitacaoDAO.listarSolicitacoes(idUsuarioLogado);
+
+        if (linhaSelecionada >= 0 && lista != null) {
+            br.com.sistema.model.Solicitacao s = lista.get(linhaSelecionada);
+
+            txtNovaData.setText(s.getData_solicitacao());
+            txtNovaHora.setText(s.getHora_solicitacao());
+            txtNovoLocal.setText(s.getLocal_solicitacao());
+
+            this.idSolicitacaoSelecionada = s.getId_solicitacao();
+        }
+    }//GEN-LAST:event_tabelaSolicitacoesMouseClicked
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (this.idSolicitacaoSelecionada == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecione um registro na tabela para remover!");
+            return;
+        }
+
+        int confirma = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "Confirma a exclusão definitiva desta solicitação?",
+                "Confirmação de Exclusão",
+                javax.swing.JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirma == javax.swing.JOptionPane.YES_OPTION) {
+            solicitacaoDAO.excluirSolicitacao(this.idSolicitacaoSelecionada);
+
+            preencherTabela();
+            btnLimparCamposActionPerformed(evt);
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void txtPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyReleased
+        String busca = txtPesquisa.getText().trim();
+
+        java.util.List<br.com.sistema.model.Solicitacao> lista = solicitacaoDAO.pesquisarSolicitacoes(idUsuarioLogado, busca);
+
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabelaSolicitacoes.getModel();
+        modelo.setNumRows(0);
+
+        if (lista != null) {
+            for (br.com.sistema.model.Solicitacao s : lista) {
+                modelo.addRow(new Object[]{
+                    s.getCategoria(),
+                    s.getDescricao(),
+                    s.getData_solicitacao(),
+                    s.getHora_solicitacao(),
+                    s.getLocal_solicitacao(),
+                    s.getProposta_valor()
+                });
+            }
+        }
+    }//GEN-LAST:event_txtPesquisaKeyReleased
+    public void preencherTabela() {
+        java.util.List<br.com.sistema.model.Solicitacao> lista = solicitacaoDAO.listarSolicitacoes(idUsuarioLogado);
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabelaSolicitacoes.getModel();
+        modelo.setNumRows(0);
+
+        if (lista != null) {
+            for (br.com.sistema.model.Solicitacao s : lista) {
+                modelo.addRow(new Object[]{
+                    s.getCategoria(),
+                    s.getDescricao(),
+                    s.getData_solicitacao(),
+                    s.getHora_solicitacao(),
+                    s.getLocal_solicitacao(),
+                    s.getProposta_valor()
+                });
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -263,16 +420,24 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmMenuSolicitacao.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -290,6 +455,7 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimparCampos;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

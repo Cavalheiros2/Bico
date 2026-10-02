@@ -10,7 +10,9 @@ package br.com.sistema.view;
  * @author guiho
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
+
     private int idUsuarioLogado;
+
     /**
      * Creates new form FrmMenuPrincipal
      */
@@ -37,6 +39,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuOpcao = new javax.swing.JMenu();
         menuItemSair = new javax.swing.JMenuItem();
         menuItemContatos = new javax.swing.JMenuItem();
+        MenuSolicitacao = new javax.swing.JMenuItem();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -75,6 +78,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuOpcao.setText("Opções");
 
         menuItemSair.setText("Sair");
+        menuItemSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemSairActionPerformed(evt);
+            }
+        });
         menuOpcao.add(menuItemSair);
 
         menuItemContatos.setText("Contatos");
@@ -84,6 +92,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
             }
         });
         menuOpcao.add(menuItemContatos);
+
+        MenuSolicitacao.setText("Menu Solicitaçoes");
+        MenuSolicitacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuSolicitacaoActionPerformed(evt);
+            }
+        });
+        menuOpcao.add(MenuSolicitacao);
 
         menuBarra.add(menuOpcao);
 
@@ -110,9 +126,30 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_munuItemClienteActionPerformed
 
     private void menuItemContatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemContatosActionPerformed
-        FrmContato telaContato = new FrmContato(this.idUsuarioLogado); 
+        FrmContato telaContato = new FrmContato(this.idUsuarioLogado);
         telaContato.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_menuItemContatosActionPerformed
+
+    private void MenuSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSolicitacaoActionPerformed
+        FrmMenuSolicitacao menuSolicitacao = new FrmMenuSolicitacao(this.idUsuarioLogado);
+        menuSolicitacao.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_MenuSolicitacaoActionPerformed
+
+    private void menuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSairActionPerformed
+        int confirma = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "Tem certeza que deseja sair do sistema?",
+                "Confirmação",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (confirma == javax.swing.JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_menuItemSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +178,7 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuSolicitacao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JMenuBar menuBarra;

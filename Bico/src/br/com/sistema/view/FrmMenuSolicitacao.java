@@ -88,6 +88,11 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
 
         btnLimparCampos.setText("LIMPAR CAMPOS");
         btnLimparCampos.setPreferredSize(new java.awt.Dimension(120, 80));
+        btnLimparCampos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparCamposActionPerformed(evt);
+            }
+        });
 
         labPesquisa.setText("PESQUISA:");
 
@@ -239,6 +244,10 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     private void txtNovaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaDataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNovaDataActionPerformed
+
+    private void btnLimparCamposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCamposActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparCamposActionPerformed
 
     /**
      * @param args the command line arguments

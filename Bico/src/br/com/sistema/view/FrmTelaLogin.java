@@ -39,7 +39,10 @@ public class FrmTelaLogin extends javax.swing.JFrame {
 
             if (usuarioLogado != null) {
                 this.dispose();
-                FrmMenuPrincipal frmMenu = new FrmMenuPrincipal();
+                
+                int idLogado = usuarioLogado.getId_usuario();
+                FrmMenuPrincipal frmMenu = new FrmMenuPrincipal(idLogado);
+                
                 frmMenu.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Usuário ou senha inválidos!");
@@ -59,6 +62,7 @@ public class FrmTelaLogin extends javax.swing.JFrame {
         labNome = new javax.swing.JLabel();
         labSenha = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -83,6 +87,7 @@ public class FrmTelaLogin extends javax.swing.JFrame {
             }
         });
 
+        btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEntrar.setText("ENTRAR");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,41 +95,50 @@ public class FrmTelaLogin extends javax.swing.JFrame {
             }
         });
 
+        btnCadastro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCadastro.setText("CADASTRE-SE");
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
 
         labNome.setText("NOME:");
 
         labSenha.setText("SENHA:");
 
+        jLabel1.setFont(new java.awt.Font("Wide Latin", 0, 48)); // NOI18N
+        jLabel1.setText("BICO");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(btnEntrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                .addComponent(btnCadastro)
-                .addGap(24, 24, 24))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnEntrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCadastro))
-                    .addComponent(labSenha)
-                    .addComponent(labNome)
-
-                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addComponent(txtSenha))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(117, 117, 117)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labSenha)
+                                .addComponent(labNome)
+                                .addComponent(txtNome)
+                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel1)))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel1)
+                .addGap(43, 43, 43)
                 .addComponent(labNome)
                 .addGap(30, 30, 30)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,11 +146,11 @@ public class FrmTelaLogin extends javax.swing.JFrame {
                 .addComponent(labSenha)
                 .addGap(18, 18, 18)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEntrar)
-                    .addComponent(btnCadastro))
-                .addGap(92, 92, 92))
+                    .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,6 +176,10 @@ public class FrmTelaLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         login();
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +219,7 @@ public class FrmTelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel labNome;

@@ -10,12 +10,13 @@ package br.com.sistema.view;
  * @author guiho
  */
 public class FrmMenuPrincipal extends javax.swing.JFrame {
-
+    private int idUsuarioLogado;
     /**
      * Creates new form FrmMenuPrincipal
      */
-    public FrmMenuPrincipal() {
+    public FrmMenuPrincipal(int idUsuarioLogado) {
         initComponents();
+        this.idUsuarioLogado = idUsuarioLogado;
     }
 
     /**
@@ -77,6 +78,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuOpcao.add(menuItemSair);
 
         menuItemContatos.setText("Contatos");
+        menuItemContatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemContatosActionPerformed(evt);
+            }
+        });
         menuOpcao.add(menuItemContatos);
 
         menuBarra.add(menuOpcao);
@@ -103,15 +109,17 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_munuItemClienteActionPerformed
 
+    private void menuItemContatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemContatosActionPerformed
+        FrmContato telaContato = new FrmContato(this.idUsuarioLogado); 
+        telaContato.setVisible(true);
+    }//GEN-LAST:event_menuItemContatosActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -119,21 +127,15 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (Exception ex) {
             java.util.logging.Logger.getLogger(FrmMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Cria e exibe o formulário passando um ID padrão para testes */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMenuPrincipal().setVisible(true);
+                new FrmMenuPrincipal(1).setVisible(true);
             }
         });
     }

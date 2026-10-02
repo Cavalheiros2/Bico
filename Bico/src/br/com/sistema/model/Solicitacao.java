@@ -16,20 +16,18 @@ public class Solicitacao {
     String data_solicitacao;
     String hora_solicitacao;
     String local_solicitacao;
-    String regiao;
     float proposta_valor;
 
     public Solicitacao() {
     }
 
-    public Solicitacao(int id_solicitacao, String categoria, String descricao, String data_solicitacao, String hora_solicitacao, String local_solicitacao, String regiao, float proposta_valor) {
+    public Solicitacao(int id_solicitacao, String categoria, String descricao, String data_solicitacao, String hora_solicitacao, String local_solicitacao, float proposta_valor) {
         this.id_solicitacao = id_solicitacao;
         this.categoria = categoria;
         this.descricao = descricao;
         this.data_solicitacao = data_solicitacao;
         this.hora_solicitacao = hora_solicitacao;
         this.local_solicitacao = local_solicitacao;
-        this.regiao = regiao;
         this.proposta_valor = proposta_valor;
     }
 
@@ -79,14 +77,6 @@ public class Solicitacao {
 
     public void setLocal_solicitacao(String local_solicitacao) {
         this.local_solicitacao = local_solicitacao;
-    }
-
-    public String getRegiao() {
-        return regiao;
-    }
-
-    public void setRegiao(String regiao) {
-        this.regiao = regiao;
     }
 
     public float getProposta_valor() {

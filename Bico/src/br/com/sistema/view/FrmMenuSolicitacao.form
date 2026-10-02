@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Yu Gothic UI Light" size="36" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="CONTATOS"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+        <Property name="horizontalTextPosition" type="int" value="0"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -46,40 +65,64 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="687" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="803" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="labPesquisa" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPesquisa" alignment="0" min="-2" pref="310" max="-2" attributes="0"/>
+                              <Component id="txtPesquisa" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
-                          <Component id="btnCadastrarSolicitacao" min="-2" pref="155" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtNovaData" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNovaHora" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtNovoLocal" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="78" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnSalvar" max="32767" attributes="0"/>
-                      <Component id="btnLimparCampos" max="32767" attributes="0"/>
-                      <Component id="btnExcluir" max="32767" attributes="0"/>
-                      <Component id="btnEditar" min="-2" pref="155" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnLimparCampos" max="32767" attributes="0"/>
+                          <Component id="btnExcluir" max="32767" attributes="0"/>
+                          <Component id="btnEditar" min="-2" pref="155" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnCadastrarSolicitacao" min="-2" pref="155" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="394" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="263" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnCadastrarSolicitacao" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnCadastrarSolicitacao" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnEditar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -87,15 +130,27 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnLimparCampos" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="labPesquisa" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel4" min="-2" pref="86" max="-2" attributes="0"/>
+                          <EmptySpace pref="93" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtPesquisa" min="-2" pref="34" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtPesquisa" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="txtNovaHora" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="txtNovaData" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="txtNovoLocal" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="227" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="118" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -111,15 +166,27 @@
             <Component class="javax.swing.JTable" name="jTable2">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="4">
+                    <Column editable="true" title="categoria" type="java.lang.Object"/>
+                    <Column editable="true" title="descri&#xe7;ao" type="java.lang.Object"/>
+                    <Column editable="true" title="data" type="java.lang.Object"/>
+                    <Column editable="true" title="hora" type="java.lang.Object"/>
+                    <Column editable="true" title="local" type="java.lang.Object"/>
+                    <Column editable="true" title="prop_valor" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -153,14 +220,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPesquisaActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnSalvar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="SALVAR"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[120, 80]"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnEditar">
           <Properties>
@@ -198,6 +257,56 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CADASTRAR SOLICITA&#xc7;&#xc3;O"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarSolicitacaoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Yu Gothic UI Light" size="36" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="SOLICITA&#xc7;&#xd5;ES"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NOVA DATA:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NOVO LOCAL: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NOVA HORA:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNovaHora">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNovaHoraActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNovoLocal">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNovoLocalActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNovaData">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNovaDataActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

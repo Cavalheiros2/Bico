@@ -86,4 +86,17 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+    
+     @Override
+    public String toString() {
+        return this.getNome(); 
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Usuario other = (Usuario) obj;
+        return this.id_usuario == other.id_usuario; // Compara os usuários pelo ID
+    }
 }

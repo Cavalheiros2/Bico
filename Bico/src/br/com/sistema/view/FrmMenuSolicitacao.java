@@ -27,16 +27,29 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         txtPesquisa = new javax.swing.JTextField();
-        btnSalvar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnLimparCampos = new javax.swing.JButton();
         labPesquisa = new javax.swing.JLabel();
         btnCadastrarSolicitacao = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtNovaHora = new javax.swing.JTextField();
+        txtNovoLocal = new javax.swing.JTextField();
+        txtNovaData = new javax.swing.JTextField();
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
+        jLabel3.setText("CONTATOS");
+        jLabel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,13 +58,13 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "categoria", "descriçao", "data", "hora", "local", "prop_valor"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -61,9 +74,6 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
                 txtPesquisaActionPerformed(evt);
             }
         });
-
-        btnSalvar.setText("SALVAR");
-        btnSalvar.setPreferredSize(new java.awt.Dimension(120, 80));
 
         btnEditar.setText("EDITAR");
         btnEditar.setPreferredSize(new java.awt.Dimension(120, 80));
@@ -82,38 +92,91 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
         labPesquisa.setText("PESQUISA:");
 
         btnCadastrarSolicitacao.setText("CADASTRAR SOLICITAÇÃO");
+        btnCadastrarSolicitacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarSolicitacaoActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
+        jLabel4.setText("SOLICITAÇÕES");
+        jLabel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel1.setText("NOVA DATA:");
+
+        jLabel2.setText("NOVO LOCAL: ");
+
+        jLabel5.setText("NOVA HORA:");
+
+        txtNovaHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNovaHoraActionPerformed(evt);
+            }
+        });
+
+        txtNovoLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNovoLocalActionPerformed(evt);
+            }
+        });
+
+        txtNovaData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNovaDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labPesquisa)
-                            .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(222, 222, 222)
-                        .addComponent(btnCadastrarSolicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65))
+                            .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNovaData, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel1)
+                                .addGap(91, 91, 91)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txtNovaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNovoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))))
+                        .addGap(31, 31, 31)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnLimparCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastrarSolicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(394, 394, 394)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCadastrarSolicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCadastrarSolicitacao, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -121,12 +184,22 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnLimparCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(labPesquisa)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labPesquisa)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNovaHora, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNovaData, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNovoLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,6 +223,22 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     private void txtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesquisaActionPerformed
+
+    private void btnCadastrarSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarSolicitacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadastrarSolicitacaoActionPerformed
+
+    private void txtNovaHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNovaHoraActionPerformed
+
+    private void txtNovoLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoLocalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNovoLocalActionPerformed
+
+    private void txtNovaDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNovaDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,11 +281,18 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnLimparCampos;
-    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel labPesquisa;
+    private javax.swing.JTextField txtNovaData;
+    private javax.swing.JTextField txtNovaHora;
+    private javax.swing.JTextField txtNovoLocal;
     private javax.swing.JTextField txtPesquisa;
     // End of variables declaration//GEN-END:variables
 }

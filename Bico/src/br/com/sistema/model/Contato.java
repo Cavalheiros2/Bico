@@ -10,9 +10,11 @@ package br.com.sistema.model;
  * @author guiho
  */
 public class Contato {
+
     int id_contato;
     int id_usuario_principal;
     int id_usuario_contato;
+    String apelido_contato;
 
     public Contato() {
     }
@@ -21,6 +23,7 @@ public class Contato {
         this.id_contato = id_contato;
         this.id_usuario_principal = id_usuario_principal;
         this.id_usuario_contato = id_usuario_contato;
+        this.apelido_contato = apelido_contato;
     }
 
     public int getId_contato() {
@@ -45,5 +48,13 @@ public class Contato {
 
     public void setId_usuario_contato(int id_usuario_contato) {
         this.id_usuario_contato = id_usuario_contato;
+    }
+
+    public String getApelido_contato() {
+        return apelido_contato;
+    }
+
+    public void setApelido_contato(String apelido_contato) {
+        this.apelido_contato = apelido_contato;
     }
 }

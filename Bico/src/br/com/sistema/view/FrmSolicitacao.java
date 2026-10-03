@@ -15,13 +15,14 @@ public class FrmSolicitacao extends javax.swing.JFrame {
 
     private int idUsuarioLogado;
     private br.com.sistema.dao.SolicitacaoDAO solicitacaoDAO = new br.com.sistema.dao.SolicitacaoDAO();
-    
+
     /**
      * Creates new form FrmSolicitacao
      */
     public FrmSolicitacao(int idUsuarioLogado) {
         this.idUsuarioLogado = idUsuarioLogado;
         initComponents();
+        carregarCategorias();
     }
 
     private FrmSolicitacao() {
@@ -43,7 +44,6 @@ public class FrmSolicitacao extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jTextField6 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        campCat = new javax.swing.JTextField();
         campData = new javax.swing.JTextField();
         campPropValor = new javax.swing.JTextField();
         campLocal = new javax.swing.JTextField();
@@ -58,6 +58,7 @@ public class FrmSolicitacao extends javax.swing.JFrame {
         btnCadastrarSolicitacao = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         campDesc = new javax.swing.JTextArea();
+        cbCategorias = new javax.swing.JComboBox();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -76,12 +77,6 @@ public class FrmSolicitacao extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 51));
-
-        campCat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campCatActionPerformed(evt);
-            }
-        });
 
         campData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,12 +129,14 @@ public class FrmSolicitacao extends javax.swing.JFrame {
         campDesc.setRows(5);
         jScrollPane3.setViewportView(campDesc);
 
+        cbCategorias.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 67, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnCadastrarSolicitacao)
                 .addGap(68, 68, 68))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -150,10 +147,6 @@ public class FrmSolicitacao extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(campCat, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel1)
@@ -170,8 +163,12 @@ public class FrmSolicitacao extends javax.swing.JFrame {
                                             .addComponent(campLocal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(campHora, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(campData, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +178,7 @@ public class FrmSolicitacao extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(campCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(13, 13, 13)
@@ -221,31 +218,34 @@ public class FrmSolicitacao extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void novaSolicitacao(){
+    public void novaSolicitacao() {
         try {
-            if (campCat.getText().trim().isEmpty() || 
-                campDesc.getText().trim().isEmpty() || 
-                campData.getText().trim().isEmpty() || 
-                campHora.getText().trim().isEmpty() || 
-                campLocal.getText().trim().isEmpty() || 
-                campPropValor.getText().trim().isEmpty()) {
-            
+            br.com.sistema.model.Categoria catSelecionada = (br.com.sistema.model.Categoria) cbCategorias.getSelectedItem();
+
+            if (catSelecionada == null
+                    || campDesc.getText().trim().isEmpty()
+                    || campData.getText().trim().isEmpty()
+                    || campHora.getText().trim().isEmpty()
+                    || campLocal.getText().trim().isEmpty()
+                    || campPropValor.getText().trim().isEmpty()) {
+
                 throw new IllegalArgumentException("Todos os campos obrigatórios devem ser preenchidos!");
             }
 
             Solicitacao solicitacao = new Solicitacao();
-            solicitacao.setCategoria(campCat.getText());
+
+            solicitacao.setCategoria(catSelecionada.getNome_categoria());
             solicitacao.setDescricao(campDesc.getText());
             solicitacao.setData_solicitacao(campData.getText());
             solicitacao.setHora_solicitacao(campHora.getText());
             solicitacao.setLocal_solicitacao(campLocal.getText());
-        
-            String val = campPropValor.getText().replace(",",".");
+
+            String val = campPropValor.getText().replace(",", ".");
             solicitacao.setProposta_valor(Float.parseFloat(val));
             solicitacao.setId_usuario(idUsuarioLogado);
-        
+
             solicitacaoDAO.salvarSolicitacao(solicitacao);
- 
+
             new FrmMenuSolicitacao(this.idUsuarioLogado).setVisible(true);
             this.dispose();
 
@@ -255,7 +255,18 @@ public class FrmSolicitacao extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro crítico ao salvar no banco: " + e.getMessage());
         }
     }
- 
+
+    public void carregarCategorias() {
+        cbCategorias.removeAllItems();
+        java.util.List<br.com.sistema.model.Categoria> lista = solicitacaoDAO.listarCategorias();
+
+        if (lista != null) {
+            for (br.com.sistema.model.Categoria c : lista) {
+                cbCategorias.addItem(c);
+            }
+        }
+    }
+
     private void campPropValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campPropValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campPropValorActionPerformed
@@ -263,10 +274,6 @@ public class FrmSolicitacao extends javax.swing.JFrame {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void campCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campCatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campCatActionPerformed
 
     private void campDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campDataActionPerformed
         // TODO add your handling code here:
@@ -317,12 +324,12 @@ public class FrmSolicitacao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarSolicitacao;
-    private javax.swing.JTextField campCat;
     private javax.swing.JTextField campData;
     private javax.swing.JTextArea campDesc;
     private javax.swing.JTextField campHora;
     private javax.swing.JTextField campLocal;
     private javax.swing.JTextField campPropValor;
+    private javax.swing.JComboBox cbCategorias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

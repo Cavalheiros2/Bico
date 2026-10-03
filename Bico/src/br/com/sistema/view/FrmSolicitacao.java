@@ -255,7 +255,7 @@ public class FrmSolicitacao extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Erro crítico ao salvar no banco: " + e.getMessage());
         }
     }
-    
+ 
     private void campPropValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campPropValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campPropValorActionPerformed

@@ -31,6 +31,26 @@ public class UsuarioDAO {
         }
     }
 
+    public void salvarUsuario(Usuario obj) {
+        try {
+            String sql = "INSERT INTO usuarios (nome,apelido,cpf,email,telefone,senha) VALUES(?,?,?,?,?,?)";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, obj.getNome());
+            stmt.setString(2, obj.getApelido());
+            stmt.setString(3, obj.getCpf());
+            stmt.setString(4, obj.getEmail());
+            stmt.setString(5, obj.getTelefone());
+            stmt.setString(6, obj.getSenha());
+            
+            stmt.execute();
+            stmt.close();
+            
+            JOptionPane.showMessageDialog(null, "Usuario salvo com sucesso!");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar Usuario: " + erro);
+        }
+    }
+
     public Usuario login(String nome, String senha) {
         String sql = "SELECT id_usuario, nome, senha FROM usuarios WHERE nome = ? AND senha = ?";
         try {
@@ -58,16 +78,16 @@ public class UsuarioDAO {
             String sql = "SELECT id_usuario, nome, apelido, cpf, email, telefone, senha FROM usuarios ORDER BY nome";
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
-            
+
             while (rs.next()) {
                 Usuario u = new Usuario(
-                    rs.getInt("id_usuario"),
-                    rs.getString("nome"),
-                    rs.getString("apelido"),
-                    rs.getString("cpf"),
-                    rs.getString("email"),
-                    rs.getString("telefone"),
-                    rs.getString("senha")
+                        rs.getInt("id_usuario"),
+                        rs.getString("nome"),
+                        rs.getString("apelido"),
+                        rs.getString("cpf"),
+                        rs.getString("email"),
+                        rs.getString("telefone"),
+                        rs.getString("senha")
                 );
                 lista.add(u);
             }
@@ -86,16 +106,16 @@ public class UsuarioDAO {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, busca + "%");
             ResultSet rs = stmt.executeQuery();
-            
+
             while (rs.next()) {
                 Usuario u = new Usuario(
-                    rs.getInt("id_usuario"),
-                    rs.getString("nome"),
-                    rs.getString("apelido"),
-                    rs.getString("cpf"),
-                    rs.getString("email"),
-                    rs.getString("telefone"),
-                    rs.getString("senha")
+                        rs.getInt("id_usuario"),
+                        rs.getString("nome"),
+                        rs.getString("apelido"),
+                        rs.getString("cpf"),
+                        rs.getString("email"),
+                        rs.getString("telefone"),
+                        rs.getString("senha")
                 );
                 lista.add(u);
             }
@@ -115,7 +135,7 @@ public class UsuarioDAO {
             stmt.setString(2, email);
             stmt.setString(3, telefone);
             stmt.setInt(4, idUsuario);
-            
+
             stmt.execute();
             stmt.close();
             JOptionPane.showMessageDialog(null, "Dados do cliente atualizados com sucesso!");
@@ -129,7 +149,7 @@ public class UsuarioDAO {
             String sql = "DELETE FROM usuarios WHERE id_usuario = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, idUsuario);
-            
+
             stmt.execute();
             stmt.close();
             JOptionPane.showMessageDialog(null, "Cliente removido com sucesso!");

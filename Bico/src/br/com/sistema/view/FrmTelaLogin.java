@@ -176,7 +176,9 @@ public class FrmTelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        // TODO add your handling code here:
+        FrmCadastroUsuario cadUsuario = new FrmCadastroUsuario();
+        cadUsuario.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**

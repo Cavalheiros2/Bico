@@ -306,15 +306,12 @@ public class FrmContato extends javax.swing.JFrame {
             return;
         }
 
-        // Cria o objeto passando o novo campo de texto
         Contato novoContato = new Contato();
         novoContato.setId_usuario_principal(this.idUsuarioLogado);
         novoContato.setId_usuario_contato(usuarioSelecionado.getId_usuario());
-        novoContato.setApelido_contato(apelidoCustomizado); // <-- Passando o apelido customizado
-
+        novoContato.setApelido_contato(apelidoCustomizado); 
         contatoDAO.salvarContato(novoContato);
 
-        // Atualiza a grade e limpa os campos
         preencherTabela();
         btnLimparCamposActionPerformed(evt);
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -328,23 +325,20 @@ public class FrmContato extends javax.swing.JFrame {
     }//GEN-LAST:event_txtApelidoContatoActionPerformed
 
     private void tabelaContatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaContatosMouseClicked
-        // 1. Pega a linha que foi clicada (não importa em qual das 3 colunas foi o clique)
+
         int linhaSelecionada = tabelaContatos.getSelectedRow();
 
         if (linhaSelecionada >= 0) {
-            // 2. Resgata o Nome e o Apelido diretamente das células da tabela
+
             String nomeTabela = tabelaContatos.getValueAt(linhaSelecionada, 0).toString();
             String apelidoTabela = tabelaContatos.getValueAt(linhaSelecionada, 1).toString();
 
-            // 3. Joga o apelido direto na caixa de texto para edição
             txtApelidoContato.setText(apelidoTabela);
 
-            // 4. Correção inteligente para o ComboBox: varre os itens e seleciona o que tem o mesmo nome
             for (int i = 0; i < cbUsuarios.getItemCount(); i++) {
                 br.com.sistema.model.Usuario u = (br.com.sistema.model.Usuario) cbUsuarios.getItemAt(i);
                 if (u.getNome().equals(nomeTabela)) {
                     cbUsuarios.setSelectedIndex(i);
-                    // Trava o ID correto do contato selecionado para que Editar e Excluir funcionem!
                     this.idContatoSelecionado = u.getId_usuario();
                     break;
                 }
@@ -365,13 +359,12 @@ public class FrmContato extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimparCamposActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // 1. Verifica se o usuário realmente selecionou uma linha na tabela antes
+
         if (this.idContatoSelecionado == -1) {
             javax.swing.JOptionPane.showMessageDialog(this, "Selecione um contato na tabela para excluir!");
             return;
         }
 
-        // 2. Abre uma caixinha de confirmação (Sim ou Não) para evitar exclusões por acidente
         int confirma = javax.swing.JOptionPane.showConfirmDialog(
                 this,
                 "Tem certeza que deseja excluir este contato da sua agenda?",
@@ -379,27 +372,23 @@ public class FrmContato extends javax.swing.JFrame {
                 javax.swing.JOptionPane.YES_NO_OPTION
         );
 
-        // 3. Se o usuário clicou em SIM, executa a exclusão
         if (confirma == javax.swing.JOptionPane.YES_OPTION) {
-            // Executa a exclusão direto pelo DAO que criamos
+
             contatoDAO.excluirContato(this.idUsuarioLogado, this.idContatoSelecionado);
 
-            // 4. Atualiza a tabela na tela para sumir o contato e limpa os campos
             preencherTabela();
             btnLimparCamposActionPerformed(evt);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void txtPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisaKeyReleased
-        // 1. Captura o texto digitado na pesquisa
+        
         String busca = txtPesquisa.getText().trim();
 
-        // 2. Chama o método de filtro do DAO passando o ID logado e o texto da busca
         java.util.List<br.com.sistema.model.Usuario> lista = contatoDAO.pesquisarContatos(idUsuarioLogado, busca);
-
-        // 3. Atualiza o modelo de dados da tabelaContatos
+        
         javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tabelaContatos.getModel();
-        modelo.setNumRows(0); // Limpa as linhas anteriores
+        modelo.setNumRows(0);
 
         if (lista != null) {
             for (br.com.sistema.model.Usuario u : lista) {

@@ -14,10 +14,13 @@ public class FrmCliente extends javax.swing.JFrame {
     /**
      * Creates new form FrmCadastro
      */
-    public FrmCliente() {
+    public FrmCliente(int idUsuarioLogado) {
         initComponents();
     }
 
+    private FrmCliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

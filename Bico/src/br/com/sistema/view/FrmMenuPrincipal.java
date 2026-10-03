@@ -39,7 +39,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuOpcao = new javax.swing.JMenu();
         menuItemSair = new javax.swing.JMenuItem();
         menuItemContatos = new javax.swing.JMenuItem();
-        MenuSolicitacao = new javax.swing.JMenuItem();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -71,6 +70,11 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuCadastro.add(munuItemCliente);
 
         menuItemSolicitacao.setText("Solicitação");
+        menuItemSolicitacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemSolicitacaoActionPerformed(evt);
+            }
+        });
         menuCadastro.add(menuItemSolicitacao);
 
         menuBarra.add(menuCadastro);
@@ -93,14 +97,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         });
         menuOpcao.add(menuItemContatos);
 
-        MenuSolicitacao.setText("Menu Solicitaçoes");
-        MenuSolicitacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuSolicitacaoActionPerformed(evt);
-            }
-        });
-        menuOpcao.add(MenuSolicitacao);
-
         menuBarra.add(menuOpcao);
 
         setJMenuBar(menuBarra);
@@ -122,7 +118,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void munuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_munuItemClienteActionPerformed
-        // TODO add your handling code here:
+        if (this.idUsuarioLogado == 1) {
+            
+            FrmMenuCliente telaMenuCliente = new FrmMenuCliente(this.idUsuarioLogado);
+            telaMenuCliente.setVisible(true);
+            this.dispose();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Acesso Negado!\nApenas o usuário Administrador tem permissão.");
+        }
     }//GEN-LAST:event_munuItemClienteActionPerformed
 
     private void menuItemContatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemContatosActionPerformed
@@ -130,12 +133,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         telaContato.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuItemContatosActionPerformed
-
-    private void MenuSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSolicitacaoActionPerformed
-        FrmMenuSolicitacao menuSolicitacao = new FrmMenuSolicitacao(this.idUsuarioLogado);
-        menuSolicitacao.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_MenuSolicitacaoActionPerformed
 
     private void menuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSairActionPerformed
         int confirma = javax.swing.JOptionPane.showConfirmDialog(
@@ -150,6 +147,12 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_menuItemSairActionPerformed
+
+    private void menuItemSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSolicitacaoActionPerformed
+        FrmMenuSolicitacao menuSolicitacao = new FrmMenuSolicitacao(this.idUsuarioLogado);
+        menuSolicitacao.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemSolicitacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,7 +181,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem MenuSolicitacao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JMenuBar menuBarra;

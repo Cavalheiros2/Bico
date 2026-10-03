@@ -293,7 +293,8 @@ public class FrmMenuSolicitacao extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisaActionPerformed
 
     private void btnCadastrarSolicitacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarSolicitacaoActionPerformed
-        // TODO add your handling code here:
+        new FrmSolicitacao(this.idUsuarioLogado).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadastrarSolicitacaoActionPerformed
 
     private void txtNovaHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovaHoraActionPerformed
